@@ -1,0 +1,32 @@
+<html>
+    <body>
+        <div id="Receipt"></div>
+        <script>
+            function cartTotal(cartItems){
+                let total = 0;
+                cartItems.forEach(element => {
+                    total += element.price * element.quantity;
+                });
+                console.log(total);
+            }
+            cartTotal([
+                {name:'Apple',price:4,quantity:2},
+                {name:'Orange',price:3,quantity:3}
+            ]);
+            function displayReceipt(cartItems){
+                const display = document.getElementById('Receipt');
+                display.innerHTML = '';
+                let total = 0;
+                cartItems.forEach(function(item){
+                    total += item.price * item.quantity;
+                    const element = document.createElement('div');
+                    element.innerText = item.name + ' $' + item.price + ' * ' + item.quantity;
+                    display.appendChild(element);
+                });
+                const element = document.createElement('div');
+                element.innerText = "Cart Total = $" + total;
+                display.appendChild(element);
+            }
+        </script>
+    </body>
+</html>

@@ -1,0 +1,39 @@
+<style></style>
+<html>
+    <head>
+        <title>
+            Exercises
+        </title>
+    </head>
+
+    <body>
+        <input id="numberToConvert" type="number"/>
+        <button onclick="convertToInches()">CmtoInches</button>
+        <button onclick="convertToCm()">InchestoCm</button>
+        <div id="result"></div>
+
+        <script>
+
+        const result = document.getElementById('result');
+        const textbox = document.getElementById('numberToConvert');
+        
+
+        function convertToInches(){
+            const numberToConvert = textbox.value;
+            const answer = numberToConvert / 2.54;
+            const element = document.createElement('div');
+            element.innerText = answer;
+            result.appendChild(element);
+        }
+        function convertToCm(){
+            const numberToConvert = textbox.value;
+            const answer = numberToConvert * 2.54;
+            const element = document.createElement('div');
+            element.innerText = answer;
+            result.appendChild(element);
+        }
+        
+        </script>
+    </body>
+
+</html>

@@ -1,0 +1,82 @@
+<script>
+    function max(numArray){
+        let temp = -Infinity;
+        numArray.forEach(function(num){
+            if(num > temp)
+                temp = num;
+        })
+        return temp;
+    }
+    function min(numArray){
+        let temp = Infinity;
+        numArray.forEach(function(num){
+            if(num < temp)
+                temp = num;
+        })
+        return temp;
+    }
+    function smallButPositive(numArray){
+        let temp = Infinity;
+        numArray.forEach(function(num){
+            if(num < temp)
+                if(num > 0)
+                    temp = num;
+        })
+        return temp;
+    }
+    // Remove first two apples
+    function pick2Apples(fruits){
+        let counter = 0;
+        return fruits.filter(function(fruit){
+            if(counter === 2)
+                return true;
+            if(fruit === 'apple'){
+                counter += 1;
+                return false;
+            }
+            else
+             return true; 
+        })
+    }
+    //Remove 2 apples and 1 orange
+    function pickFruits(fruits){
+        let appleCounter = 0;
+        let orangeCounter = 0;
+        return fruits.filter(function(fruit){
+            if(fruit === 'apple'){
+                if(appleCounter < 2){
+                    appleCounter += 1;
+                    return false;
+                }
+            }
+            else if(fruit === 'orange'){
+                if(orangeCounter < 1){
+                    orangeCounter += 1;
+                    return false
+                }
+            }
+            return true; 
+        })
+    }
+    function pickLastApples(fruitArray) {
+  let applesPicked = 0;
+
+  const reversedArray = fruitArray.reverse();
+
+  const filteredArray = reversedArray.filter(function (fruit) {
+    if (applesPicked >= 2) {
+      return true;
+    } else if (fruit === 'apple') {
+      applesPicked = applesPicked + 1;
+      return false;
+    } else {
+      return true;
+    }
+  });
+
+  // Remember to reverse the array back.
+  return filteredArray.reverse();
+}
+
+
+</script>
